@@ -15,6 +15,7 @@ pipeline {
       agent {label 'linuxslave1'}
           steps {
            sh 'echo "collecting data from sound sensor" '
+           git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-RPI-sound-sensor.git'
            sh 'docker build -t haleema/docker-rpi-sound:latest .'
            sh 'docker run --privileged -t haleema/docker-rpi-sound'
 
